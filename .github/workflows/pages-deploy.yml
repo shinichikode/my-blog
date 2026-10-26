@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          
+
 
       - name: Install Bundler & Gems
         run: |
@@ -45,7 +45,9 @@ jobs:
           bundle install
 
       - name: Install NPM Dependencies
-        run: npm install
+        run: |
+              npm install
+              npm run build
 
       - name: Build Site
         run: JEKYLL_ENV=production bundle exec jekyll build
